@@ -1,3 +1,4 @@
+import 'package:aniverse/Login_page.dart';
 import 'package:flutter/material.dart';
 
 class StartupPage extends StatelessWidget {
@@ -31,8 +32,7 @@ class StartupPage extends StatelessWidget {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  // Add your action here
-                  print("Button pressed!");
+                 Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => const LoginPage(),));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white24, // Button color
