@@ -1,3 +1,4 @@
+import 'package:aniverse/username_verf_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -70,10 +71,16 @@ class LoginPage extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                     const SizedBox(height: 30),
-                    Align(alignment: Alignment.center,child: Text('FORGET PASSWORD',style: TextStyle(color: Colors.red) ,)),
+                    Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'FORGET PASSWORD',
+                          style: TextStyle(color: Colors.red),
+                        )),
                     // Login Button
                     SizedBox(height: 30),
-                    SizedBox(height: 60,
+                    SizedBox(
+                      height: 60,
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
@@ -96,6 +103,27 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    SizedBox(height: 30),
+                    Align(
+                      alignment: Alignment.center,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegistrationPage1(),
+                              ));
+                        },
+                        child: Text(
+                          "DON'T HAVE AN ACCOUNT",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16, // You can adjust the size as needed
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
