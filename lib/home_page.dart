@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Aniverse',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700)),
+      appBar: AppBar(centerTitle: true,
+        backgroundColor: Colors.black,
+        title: const Text(
+          'Aniverse',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+        ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.messenger_outline_rounded),
+            icon: const Icon(CupertinoIcons.paperplane_fill,color: Colors.white),
             onPressed: () {
-              // Add your message button logic here
               debugPrint('Message button pressed');
             },
           ),
-        ],backgroundColor: Colors.black,
-      ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: Colors.red,
+        ],
+      ),backgroundColor: Colors.black,
+      body: const Center(
+        child: Text(
+          'Home Page',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
       ),
     );
   }

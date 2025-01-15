@@ -1,5 +1,5 @@
 
-import 'package:aniverse/home_page.dart';
+import 'package:aniverse/navigation.dart';
 import 'package:aniverse/ip_page.dart';
 import 'package:aniverse/startup_page.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false, // Hides the debug banner
-      home:const HomePage(), // Loads the StartupPage
+      home:const Navigation(), // Loads the StartupPage
     );
   }
 }
