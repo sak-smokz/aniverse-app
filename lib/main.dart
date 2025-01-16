@@ -1,7 +1,10 @@
 
+import 'package:aniverse/home_page.dart';
+import 'package:aniverse/message_page.dart';
 import 'package:aniverse/navigation.dart';
 import 'package:aniverse/ip_page.dart';
 import 'package:aniverse/startup_page.dart';
+import 'package:aniverse/widgets/post_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false, // Hides the debug banner
-      home:const Navigation(), // Loads the StartupPage
+      home: HomeScreen(), // Loads the StartupPage
     );
   }
 }

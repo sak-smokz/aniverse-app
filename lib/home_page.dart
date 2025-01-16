@@ -1,3 +1,4 @@
+import 'package:aniverse/message_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -17,8 +18,12 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(CupertinoIcons.paperplane_fill,color: Colors.white),
             onPressed: () {
-              debugPrint('Message button pressed');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MessagePage()),
+              );
             },
+
           ),
         ],
       ),backgroundColor: Colors.black,
