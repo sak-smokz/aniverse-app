@@ -1,75 +1,30 @@
-import 'package:aniverse/Login_page.dart';
+
+import 'home_page.dart';
+import 'message_page.dart';
+import 'navigation.dart';
+import 'ip_page.dart';
+import 'startup_page.dart';
+import 'widgets/post_widget.dart';
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MyApp());
+}
 
-class IpPage extends StatelessWidget {
-   IpPage({super.key});
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController ipcontroller =TextEditingController();
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: Colors.black,
-        child:Form(key: _formKey,child:
-        Column(
-          children: [
-            SizedBox(height: 100),
-            TextFormField(controller: ipcontroller,
-              decoration: InputDecoration(
-                labelText: 'IP ADDRESS',
-                labelStyle: TextStyle(color: Colors.black45),
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-              ),validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter the IP address';
-              }
-              return null;
-              },
-              style: TextStyle(color: Colors.black),
-            ),
-            SizedBox(height: 30),
-            SizedBox(
-              width: 150,
-              child: ElevatedButton(
-                  onPressed: () {
-                    // if (_formKey.currentState!.validate()) {
-                    //   String ip = ipcontroller.text.trim();
-                    //   final prefs = await SharedPreferences.getInstance();
-                    //   prefs.setString("ip", "http://$ip");
-                    //
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(builder: (context) => LoginPage()),
-                    //   );
-                    // } else {
-                    //   print("Form not validated");
-                    // }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text(
-                    "SAVE",
-                    style: TextStyle(color: Colors.white),
-                  )),
-            )
-          ],)
-
-        ),
+    return MaterialApp(
+      title: 'Aniverse', // Sets the app title
+      theme: ThemeData(
+        // Configures the application's theme
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false, // Hides the debug banner
+      home: Navigation(), // Loads the StartupPage
     );
   }
 }

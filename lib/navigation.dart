@@ -1,7 +1,9 @@
-import 'package:aniverse/home_page.dart';
-import 'package:aniverse/notification_page.dart';
-import 'package:aniverse/profile_page.dart';
-import 'package:aniverse/search_page.dart';
+import 'user_add_post.dart';
+
+import 'home_page.dart';
+import 'notification_page.dart';
+import 'profile_page.dart';
+import 'search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -16,7 +18,7 @@ class _NavigationState extends State<Navigation> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    const HomeScreen(),
+     HomeScreen(),
     const SearchScreen(),
     const NotificationsScreen(),
     const ProfileScreen(),
@@ -32,7 +34,10 @@ class _NavigationState extends State<Navigation> {
         backgroundColor: Colors.red,
         shape: CircleBorder(),
         onPressed: () {
-          debugPrint('Floating Action Button Pressed');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => FileUploadPage()),
+          );
         },
         child: const Icon(Icons.add),
       ),

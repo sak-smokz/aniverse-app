@@ -1,5 +1,5 @@
-import 'package:aniverse/Login_page.dart';
-import 'package:aniverse/ip_page.dart';
+import 'Login_page.dart';
+import 'ip_page.dart';
 import 'package:flutter/material.dart';
 
 class StartupPage extends StatelessWidget {

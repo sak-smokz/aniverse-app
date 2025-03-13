@@ -1,8 +1,10 @@
-import 'package:aniverse/registration_page.dart';
+import 'registration_page.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationPage1 extends StatelessWidget {
-  const RegistrationPage1({super.key});
+  RegistrationPage1({Key? key}) : super(key: key);
+
+  final TextEditingController unameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +72,7 @@ class RegistrationPage1 extends StatelessWidget {
                       const SizedBox(height: 30),
                       // Username Field
                       TextFormField(
+                        controller: unameController,
                         decoration: InputDecoration(
                           labelText: 'USERNAME',
                           labelStyle: TextStyle(color: Colors.black45),
@@ -89,12 +92,19 @@ class RegistrationPage1 extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RegistrationPage(),
-                              ),
-                            );
+                            if (unameController.text.isNotEmpty) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RegistrationPage(uname:unameController.text),
+
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Please enter a username')),
+                              );
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.red,
