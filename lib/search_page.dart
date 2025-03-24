@@ -157,7 +157,7 @@ class _SearchScreenState extends State<SearchScreen> {
             hintText: 'Search by name...',
             hintStyle: TextStyle(color: Colors.white54),
             border: InputBorder.none,
-            prefixIcon: Icon(Icons.search, color: Colors.white),
+            prefixIcon: Icon(Icons.search, color: Colors.red),
           ),
           style: const TextStyle(color: Colors.white),
         ),
@@ -192,9 +192,9 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   title: Text(user['name'] ?? "Unknown",
                       style: const TextStyle(color: Colors.white)),
-                  trailing: ElevatedButton(
+                  trailing: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     onPressed: () => _sendRequest(user['login_id'].toString()),
-                    child: const Text("Request"),
+                    child: const Text("Request", style: TextStyle(color: Colors.white)),
                   ),
                 );
               },
@@ -228,9 +228,9 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   title: Text(product['name'] ?? "Unknown",
                       style: const TextStyle(color: Colors.white)),
-                  trailing: ElevatedButton(
+                  trailing: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     onPressed: () => _sendFollow(product['login_id'].toString()),
-                    child: const Text("Follow"),
+                    child: const Text("Follow",style: TextStyle(color: Colors.white)),
                   ),
                 );
               },

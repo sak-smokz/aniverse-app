@@ -68,14 +68,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return Scaffold(backgroundColor: Colors.black,
+      appBar: AppBar(backgroundColor: Colors.black,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text("Profile"),
+            const Text("Profile",style: TextStyle(color: Colors.white),),
             IconButton(
-              icon: const Icon(Icons.menu),
+              icon: const Icon(Icons.menu, color: Colors.red),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -107,20 +107,53 @@ class _ProfileScreenState extends State<ProfileScreen> {
           return SingleChildScrollView(
             child: Column(
               children: [
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: profile['photo'] != null
-                        ? NetworkImage(profileImageUrl)
-                        : const AssetImage("assets/default_avatar.png") as ImageProvider,
-                  ),
-                  title: Text(
-                    profile['name'] ?? "No Name",
-                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "${profile['place'] ?? 'Unknown Location'}\nPhone: ${profile['phone'] ?? 'N/A'}",
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(3), // Border thickness
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.red, width: 3), // Red border
+                      ),
+                      child: CircleAvatar(
+                        radius: 50, // Larger profile picture
+                        backgroundImage: profile['photo'] != null
+                            ? NetworkImage(profileImageUrl)
+                            : const AssetImage("assets/default_avatar.png") as ImageProvider,
+                      ),
+                    ),
+
+                    const SizedBox(height: 16), // Space between avatar and text
+                    Text(
+                      profile['name'] ?? "No Name",
+                      style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8), // Space between name and other details
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            profile['place'] ?? 'Unknown Location',
+                            style: const TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                          Text(
+                            'Phone: ${profile['phone'] ?? 'N/A'}',
+                            style: const TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Divider(height: 40,color: Colors.red),
+                ),
+
                 posts.isEmpty
                     ? const Center(
                   child: Padding(
@@ -143,7 +176,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     String postImageUrl = post['post'] != null ? "$ipAddress/${post['post']}" : "";
 
                     return Card(
-                      margin: const EdgeInsets.all(8),
+                      margin: const EdgeInsets.all(8),color: Color(0xff1C2121),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -170,7 +203,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     children: [
                                       const Icon(Icons.favorite, color: Colors.red),
                                       const SizedBox(width: 4),
-                                      Text("${post['like_count'] ?? 0} ", overflow: TextOverflow.ellipsis),
+                                      Text("${post['like_count'] ?? 0} ", overflow: TextOverflow.ellipsis,style: TextStyle(color: Colors.white)),
                                     ],
                                   ),
                                 ),
@@ -179,7 +212,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     children: [
                                       const Icon(Icons.comment, color: Colors.blue),
                                       const SizedBox(width: 4),
-                                      Text("${post['comment_count'] ?? 0} ", overflow: TextOverflow.ellipsis),
+                                      Text("${post['comment_count'] ?? 0} ", overflow: TextOverflow.ellipsis,style: TextStyle(color: Colors.white),),
                                     ],
                                   ),
                                 ),

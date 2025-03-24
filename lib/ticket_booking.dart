@@ -147,8 +147,8 @@ class _TicketBookingState extends State<TicketBooking> {
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: "Event Name",
-                labelStyle: TextStyle(color: Colors.white54),
-                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white54)),
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
               ),
             ),
@@ -157,8 +157,8 @@ class _TicketBookingState extends State<TicketBooking> {
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: "Event Amount",
-                labelStyle: TextStyle(color: Colors.white54),
-                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white54)),
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
               ),
             ),
@@ -166,24 +166,24 @@ class _TicketBookingState extends State<TicketBooking> {
             Row(
               children: [
                 Expanded(
-                  child: ElevatedButton(
+                  child: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     onPressed: _pickDate,
-                    child: Text(_selectedDate == null ? "Select Date" : DateFormat('yyyy-MM-dd').format(_selectedDate!)),
+                    child: Text(_selectedDate == null ? "Select Date" : DateFormat('yyyy-MM-dd').format(_selectedDate!),style: TextStyle(color: Colors.white)),
                   ),
                 ),
                 SizedBox(width: 10),
                 Expanded(
-                  child: ElevatedButton(
+                  child: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     onPressed: _pickTime,
-                    child: Text(_selectedTime == null ? "Select Time" : _selectedTime!.format(context)),
+                    child: Text(_selectedTime == null ? "Select Time" : _selectedTime!.format(context),style: TextStyle(color: Colors.white)),
                   ),
                 ),
               ],
             ),
             SizedBox(height: 16),
-            ElevatedButton(
+            ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
               onPressed: _pickImage,
-              child: Text("Select Image"),
+              child: Text("Select Image",style: TextStyle(color: Colors.white)),
             ),
             if (_selectedImage != null)
               Padding(

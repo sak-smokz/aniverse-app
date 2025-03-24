@@ -4,9 +4,6 @@ import 'user_view_events.dart';
 import 'view_friends.dart';
 import 'view_user_all_post.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Merchant.dart';
-import 'message_page.dart';
-import 'ticket_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
@@ -80,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height / 7,
+            height: MediaQuery.of(context).size.height / 12,
             width: MediaQuery.of(context).size.width,
             child: Row(
               children: [
@@ -95,8 +92,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 7,
-                      width: MediaQuery.of(context).size.width / 2.3,
+                      height: MediaQuery.of(context).size.height / 17,
+                      width: MediaQuery.of(context).size.width / 2.4,
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(20),
@@ -126,8 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 7,
-                      width: MediaQuery.of(context).size.width / 2.3,
+                      height: MediaQuery.of(context).size.height / 17,
+                      width: MediaQuery.of(context).size.width / 2.4,
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(20),
@@ -147,10 +144,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-          ),
-          Text(
-            'Home Page',
-            style: TextStyle(fontSize: 20, color: Colors.white),
           ),
           posts.isEmpty
               ? const Center(

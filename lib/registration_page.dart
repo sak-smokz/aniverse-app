@@ -58,13 +58,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
           // Back button
           Align(
             alignment: Alignment.topLeft,
-            child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(Icons.arrow_back_ios_rounded, color: Colors.white60),
+            child: Padding(
+              padding: EdgeInsets.only(top: 50), // Adjust the value to move it down
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios_rounded),
+                color: Colors.white,
+              ),
             ),
-          ),
+          )
+,
           // Main content
           Align(
             alignment: Alignment.bottomCenter,

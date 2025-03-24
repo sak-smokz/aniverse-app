@@ -26,14 +26,18 @@ class RegistrationPage1 extends StatelessWidget {
           // Back button at the top left
           Align(
             alignment: Alignment.topLeft,
-            child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);  // Go back to the previous screen
-              },
-              icon: Icon(Icons.arrow_back_ios_rounded),
-              color: Colors.white,
+            child: Padding(
+              padding: EdgeInsets.only(top: 50), // Adjust the value to move it down
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios_rounded),
+                color: Colors.white,
+              ),
             ),
-          ),
+          )
+,
           // Main content
           Align(
             alignment: Alignment.bottomCenter,
@@ -62,13 +66,33 @@ class RegistrationPage1 extends StatelessWidget {
                           )),
                       const SizedBox(height: 20),
                       Container(
-                        height: MediaQuery.of(context).size.height / 5,
+                        height: MediaQuery.of(context).size.height / 9,
                         width: MediaQuery.of(context).size.width / 1.1,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(30)),
                           color: Color(0xffF1F1FE),
                         ),
+                        padding: EdgeInsets.all(16), // Add padding for better spacing
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [ // Small gap between title and items
+                            Text(
+                              '• Be between 5 to 15 characters.',
+                              style: TextStyle(fontSize: 14, color: Colors.black54),
+                            ),
+                            Text(
+                              '• Include letters (a-z) and numbers (0-9).',
+                              style: TextStyle(fontSize: 14, color: Colors.black54),
+                            ),
+                            Text(
+                              '• You can use underscores (_) or dots (.) as separators.',
+                              style: TextStyle(fontSize: 14, color: Colors.black54),
+                            ),
+                          ],
+                        ),
                       ),
+
                       const SizedBox(height: 30),
                       // Username Field
                       TextFormField(
